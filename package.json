@@ -1,0 +1,43 @@
+{
+  "name": "sample-tracking",
+  "version": "0.2.0",
+  "description": "JS Dependencies for sample-tracking application",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ParkerICI/sample-tracking.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ParkerICI/sample-tracking/issues"
+  },
+  "homepage": "https://github.com/ParkerICI/sample-tracking#readme",
+  "dependencies": {
+    "@blueprintjs/datetime": "^3.19.3",
+    "css-loader": "^3.6.0",
+    "dayjs": "^1.9.4",
+    "firebase": "^8.10.0",
+    "firebaseui": "^5.0.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-editext": "^3.17.1",
+    "react-firebaseui": "^5.0.2",
+    "react-input-checkbox": "^0.1.6",
+    "react-select": "^3.1.0",
+    "reactstrap": "^8.6.0",
+    "style-loader": "^1.2.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
+}

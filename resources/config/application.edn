@@ -1,0 +1,65 @@
+{:roles                        {:admin            "administrator"
+                                :editor           "editor"
+                                :viewer           "viewer"
+                                :site-admin       "site-admin"
+                                :site-coordinator "site-coordinator"}
+ :email                        {:sendgrid-api-key     #env SENDGRID_API_KEY
+                                :sender               #env MANIFEST_EMAIL_SENDER
+                                :manifest-recipient   #env MANIFEST_EMAIL_RECIPIENT
+                                :send-manifest-emails #or [#env SEND_MANIFEST_EMAILS "false"]
+                                :send-vendor-emails   #or [#env SEND_VENDOR_EMAILS "false"]}
+ :temp-path                    "/tmp"
+ :api-key                      #env API_KEY
+ :firebase-js-credentials-path #env FIREBASE_JS_APPLICATION_CREDENTIALS
+ :csv-files                    {:form-type {:headers [:form-type-fields
+                                                      :form-type-name
+                                                      :kit-item-no]}
+                                :kit-type  {:headers [:study-name
+                                                      :cohort-name
+                                                      :kit-item-no
+                                                      :kit-name
+                                                      :sample-id-suffix
+                                                      :sample-name
+                                                      :kit-timepoints
+                                                      :ships-with-kit
+                                                      :sample-reminders
+                                                      :vendor-email
+                                                      :collection-date-optional
+                                                      :air-waybill-optional]}
+                                :site      {:headers [:site
+                                                      :study-names]}
+                                :study     {:headers [:study
+                                                      :participant-id-prefix
+                                                      :participant-id-regex
+                                                      :participant-id-validation-message
+                                                      :kit-id-prefix
+                                                      :kit-id-regex
+                                                      :kit-id-validation-message]}}
+ :sample-export                {:columns-to-drop   [:kit-uuid :timezone :complete :deleted :sample-type-uuid
+                                                    :kit-type-uuid]
+                                :column-order      [:study-name
+                                                    :site-name
+                                                    "Bioinventory Group Name"
+                                                    :sample-id
+                                                    :participant-id
+                                                    :timepoints
+                                                    "PK Timepoint"
+                                                    :collection-date
+                                                    :collection-time
+                                                    "processing-time"
+                                                    :sample-type-name
+                                                    :air-waybill
+                                                    :kit-type-name
+                                                    :kit-id]
+                                :columns-to-rename {:study-name       "BioInventory Project Name"
+                                                    :site-name        "Site"
+                                                    :sample-id        "Originating ID"
+                                                    :participant-id   "Participant ID"
+                                                    :timepoints       "Visit"
+                                                    :collection-date  "Collection Date"
+                                                    :collection-time  "Collection Time"
+                                                    "processing-time" "Processing Time"
+                                                    :sample-type-name "Sample"
+                                                    :air-waybill      "Air Waybill"
+                                                    :kit-type-name    "Kit"
+                                                    :kit-id           "Kit ID"}}}

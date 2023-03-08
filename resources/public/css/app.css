@@ -1,0 +1,345 @@
+@font-face {
+  font-family: 'Px Grotesk';
+  src: url('fonts/PxGrotesk-Bold.woff2') format('woff2'),
+      url('fonts/PxGrotesk-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Px Grotesk';
+  src: url('fonts/PxGrotesk-BoldIta.woff2') format('woff2'),
+      url('fonts/PxGrotesk-BoldIta.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Px Grotesk';
+  src: url('fonts/PxGrotesk-Light.woff2') format('woff2'),
+      url('fonts/PxGrotesk-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Px Grotesk';
+  src: url('fonts/PxGrotesk-Regular.woff2') format('woff2'),
+      url('fonts/PxGrotesk-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Px Grotesk';
+  src: url('fonts/PxGrotesk-LightIta.woff2') format('woff2'),
+      url('fonts/PxGrotesk-LightIta.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Px Grotesk';
+  src: url('fonts/PxGrotesk-RegularIta.woff2') format('woff2'),
+      url('fonts/PxGrotesk-RegularIta.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Px Grotesk Screen';
+  src: url('fonts/PxGrotesk-Screen.woff2') format('woff2'),
+      url('fonts/PxGrotesk-Screen.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+*{font-family:'Px Grotesk';}
+
+body {
+  background-color: black;
+  font-size: 1rem!important;
+}
+
+.main {
+  text-align: center;
+  width: 100%;
+}
+
+.header {
+  margin: 0px auto;
+  padding: 5px;
+  background: #343a40!important;
+  color: white;
+  font-size: 20px;
+}
+
+.header.manifest {
+  background: white!important;
+  color: black;
+}
+
+
+.header .content {
+  text-align: left;
+  top: 16px;
+  left: 16px;
+}
+
+.header .content .title {
+  display: inline-block;
+}
+
+.header .content .log-in-out-link {
+  float: right;
+}
+
+.header .content .console-link {
+  float: right;
+  clear: right;
+}
+
+.header .bars {
+  text-align: left;
+  left: 16px;
+}
+
+.page-body {
+  padding: 10px;
+  text-align: center;
+  max-width: 1000px;
+  margin: auto;
+  color: white;
+}
+
+.page-body.manifest {
+  padding: 10px;
+  text-align: center;
+  max-width: 1000px;
+  margin: auto;
+  color: black;
+}
+
+.page-body table {
+  text-align: left;
+  margin-bottom: .5em;
+}
+
+.list-body {
+  padding: 10px;
+  text-align: center;
+  max-width: 1500px;
+  margin: auto;
+  color: white;
+}
+
+.list-body table {
+  text-align: left;
+  margin-bottom: .5em;
+  border-collapse: separate;
+  border-spacing: 10px 5px;
+}
+
+div.spacer {
+  display: inline-block;
+  width: 5px;
+}
+
+/* Apply style colors to a links */
+a {
+  color: #685bc7!important;
+}
+
+a:hover {
+  color: #4a4c9b!important;
+}
+
+a:active {
+  color: #313377!important;
+}
+
+a.disabled {
+  color: #a197e6!important;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Apply theme colors to reactstrap elements */
+.btn-secondary {
+  background-color: #685bc7;
+  border-color: #685bc7;
+}
+
+.btn-secondary:hover {
+  background-color: #4a4c9b;
+  border-color: #4a4c9b;
+}
+
+.btn-secondary:active {
+  background-color: #313377;
+  border-color: #313377;
+}
+
+.btn-secondary:focus {
+  background-color: #313377;
+  border-color: #313377;
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active {
+  background-color: #313377;
+  border-color: #313377;
+}
+
+.btn-secondary.disabled,
+.btn-secondary:disabled {
+  background-color: #a197e6;
+  border-color: #a197e6;
+}
+
+/* Make React Select Menu List items have black font */
+
+.react-select__menu-list {
+  color: black!important;
+}
+
+/* Disable red box outline in Firefox */
+input:required {
+  box-shadow:none!important;
+}
+input:invalid {
+  box-shadow:none!important;
+}
+
+select[name=amPm] {
+  box-shadow:none!important;
+}
+
+/* Blueprint Styling */
+
+.bp3-input {
+  font-size: 1rem!important;
+}
+
+/* Editext Styling */
+
+button[editext] {
+  border-radius: .25rem;
+  padding: 2px;
+  background-color: #685bc7;
+  border-color: #685bc7;
+  color: white;
+}
+
+button[editext]:hover {
+  background-color: #4a4c9b;
+  border-color: #4a4c9b;
+}
+
+button[editext="input"] {
+  width: auto!important;
+}
+
+/* Tooltip styling */
+.tooltip-inner {
+  background: #343a40!important;
+}
+
+.bs-tooltip-auto[x-placement^=top] .arrow::before, .bs-tooltip-top .arrow::before {
+  border-top-color: #343a40!important;
+}
+
+/* Datetime picker */
+.react-datetime-picker__wrapper {
+    background: white;
+    border: 0;
+    border-radius: .25rem;
+    font-size: 1.25em;
+    color: black;
+}
+
+.react-datetime-picker__inputGroup__input {
+  color: black!important;
+}
+
+.react-datetime-picker__inputGroup__input:invalid {
+  background: none!important;
+}
+
+/* Checkbox stuff */
+
+.Checkbox_themed {
+  padding-left: 1.2em;
+}
+
+.Checkbox__input_themed {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.Checkbox__image_themed {
+  position: absolute;
+  margin-left: -1.2em;
+  width: 1em;
+  height: 1em;
+}
+
+.bootstrap-checkbox {
+  padding-left: 1.5rem;
+  margin-bottom: 1em;
+}
+
+.bootstrap-checkbox__image {
+  margin-left: -1.5rem;
+
+  border: #adb5bd solid 1px;
+  border-radius: .25rem;
+
+  background-color: #fff;
+
+  transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.bootstrap-checkbox__input:checked + .bootstrap-checkbox__image {
+  border-color: #564bac;
+  background: #685bc7 url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA4IDgnPjxwYXRoIGZpbGw9JyNmZmYnIGQ9J002LjU2NC43NWwtMy41OSAzLjYxMi0xLjUzOC0xLjU1TDAgNC4yNiAyLjk3NCA3LjI1IDggMi4xOTN6Jy8+PC9zdmc+) no-repeat 50%/50% 50%;
+}
+.bootstrap-checkbox__input_indeterminate + .bootstrap-checkbox__image {
+  border-color: #5247a8;
+  background: #685bc7 url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3e%3cpath stroke='%23fff' d='M0 2h4'/%3e%3c/svg%3e") no-repeat 50%/50% 50%;
+}
+.bootstrap-checkbox__input:disabled + .bootstrap-checkbox__image {
+  border-color: #888c91;
+  background-color: #b3b7bb;
+}
+.bootstrap-checkbox__input:checked:disabled + .bootstrap-checkbox__image,
+.bootstrap-checkbox__input_indeterminate:disabled + .bootstrap-checkbox__image {
+  border-color: #8077c0;
+  background-color: #a197e6;
+}
+.bootstrap-checkbox__input:focus + .bootstrap-checkbox__image {
+  box-shadow: 0 0 0 0.2rem #776cbe;
+}
+
+.bootstrap-checkbox__label {
+  vertical-align: middle;
+}
+
+/* Date picker stuff */
+
+.bp3-datepicker .DayPicker-Day.DayPicker-Day--selected {
+  background-color: #685bc7!important;
+}

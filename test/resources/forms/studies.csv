@@ -1,0 +1,5 @@
+Study Name,Participant ID Prefix,Participant ID Regex,Participant ID Validation Message,Kit ID Prefix,Kit ID Regex,Kit ID Validation Message
+STUDY8,STUDY8-,STUDY8-[0-9]{2}-[0-9]{4},Participant ID must be of the format STUDY8-11-0001,,[0-9]{8},Kit ID must be 8 digits (e.g. 12345678)
+STUDY13,STUDY13-,"STUDY13-[0-9]{3,3}-[0-9]{4,4}",Participant ID must be of the format STUDY13-101-0001,,[0-9]{8},Kit ID must be 8 digits (e.g. 12345678)
+STUDY24,,[0-9]{4}-[0-9]{4},Participant ID must be of the format 1010-0001,AA,AA[0-9]{5},Kit ID must be 5 digits and start with AA (e.g. AA12345)
+STUDY32,STUDY32-,STUDY32-[0-9]{2}-[0-9]{4},Participant ID must be of the format STUDY32-1010-0001,,[0-9]{8},Kit ID must be 8 digits (e.g. 12345678)

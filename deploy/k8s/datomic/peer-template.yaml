@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datomic-peer
+  labels:
+    app: datomic-peer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: datomic-peer
+  template:
+    metadata:
+      labels:
+        app: datomic-peer
+    spec:
+      containers:
+        - name: datomic-peer
+          image: gcr.io/pici-ereq/datomic:1.0.6202
+          imagePullPolicy: Always
+          command: [ "./bin/run", "-m", "datomic.peer-server", "-h", "0.0.0.0", "-p", "8998", "-a", "myaccesskey,mysecret", "-d", "sample-tracking,datomic:sql://sample-tracking?jdbc:postgresql://$POSTGRES_IP:5432/datomic?user=datomic&password=datomic" ]
+          ports:
+            - containerPort: 8998
+          env:
+            - name: POSTGRES_IP
+              value: ${POSTGRES_IP}

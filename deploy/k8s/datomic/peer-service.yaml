@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: datomic-peer
+  name: datomic-peer
+spec:
+  ports:
+    - name: datomic-peer
+      port: 8998
+      protocol: TCP
+      targetPort: 8998
+  selector:
+    app: datomic-peer

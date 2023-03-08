@@ -1,0 +1,32 @@
+# Job to run deploy tasks before actual deploy.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: deploy-tasks
+spec:
+  template:
+    metadata:
+      name: deploy-tasks
+      labels:
+        name: deploy-tasks
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: deploy-tasks-runner
+          image: gcr.io/pici-ereq/sample-tracking:${DEPLOY_VERSION}
+          imagePullPolicy: Always
+          command: [ "/bin/sh", "-c", "java -jar sample-tracking-standalone.jar predeploy" ]
+          ports:
+            - containerPort: 8989
+          env:
+            - name: DEPLOY_ENVIRONMENT
+              value: default
+            - name: DATOMIC_ACCESS_KEY
+              value: myaccesskey
+            - name: DATOMIC_SECRET
+              value: mysecret
+            - name: DATOMIC_DB_NAME
+              value: sample-tracking
+            - name: DATOMIC_ENDPOINT
+              value: datomic-peer:8998
+  backoffLimit: 1

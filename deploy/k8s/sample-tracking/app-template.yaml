@@ -1,0 +1,97 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-tracking-app
+  labels:
+    app: sample-tracking
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-tracking
+  template:
+    metadata:
+      labels:
+        app: sample-tracking
+        tier: web
+    spec:
+      volumes:
+        - name: google-application-credentials
+          secret:
+            secretName: google-application-credentials
+        - name: firebase-application-credentials
+          secret:
+            secretName: firebase-application-credentials
+      containers:
+        - name: sample-tracking-app
+          image: gcr.io/pici-ereq/sample-tracking:${DEPLOY_VERSION}
+          imagePullPolicy: Always
+          command: [ "java" ]
+          args: [ "-Xss4096k", "-Xmx23G", "-jar", "sample-tracking-standalone.jar", "server", "-p", "8989" ]
+          resources:
+            requests:
+              memory: "24Gi"
+          ports:
+            - containerPort: 8989
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 8989
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 8989
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+          volumeMounts:
+            - name: google-application-credentials
+              mountPath: /credentials/service-account.json
+              subPath: service-account.json
+            - name: firebase-application-credentials
+              mountPath: /credentials/firebase-credentials.json
+              subPath: firebase-credentials.json
+          env:
+            - name: DEPLOY_ENVIRONMENT
+              value: default
+            - name: DATOMIC_ACCESS_KEY
+              value: myaccesskey
+            - name: DATOMIC_SECRET
+              value: mysecret
+            - name: DATOMIC_DB_NAME
+              value: sample-tracking
+            - name: DATOMIC_ENDPOINT
+              value: datomic-peer:8998
+            - name: MANIFEST_EMAIL_RECIPIENT
+              value: ${MANIFEST_EMAIL_RECIPIENT}
+            - name: MANIFEST_EMAIL_SENDER
+              value: ereq-admin@parkerici.org
+            - name: SEND_MANIFEST_EMAILS
+              value: "true"
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: "/credentials/service-account.json"
+            - name: FIREBASE_JS_APPLICATION_CREDENTIALS
+              value: "/credentials/firebase-credentials.json"
+            - name: SEND_VENDOR_EMAILS
+              value: "${SEND_VENDOR_EMAILS}"
+            - name: OAUTH_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: google-oauth
+                  key: id
+            - name: OAUTH_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: google-oauth
+                  key: secret
+            - name: SENDGRID_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sendgrid-api
+                  key: key
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ereq-auth
+                  key: key

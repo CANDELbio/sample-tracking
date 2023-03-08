@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datomic-transactor
+  labels:
+    app: datomic-transactor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: datomic-transactor
+  template:
+    metadata:
+      labels:
+        app: datomic-transactor
+    spec:
+      volumes:
+        - name: transactor-properties
+          secret:
+            secretName: datomic-transactor-properties
+      containers:
+        - name: datomic-transactor
+          image: gcr.io/pici-ereq/datomic:1.0.6202
+          imagePullPolicy: Always
+          command: [ "./bin/transactor", "config/transactor.properties" ]
+          ports:
+            - containerPort: 4334
+          volumeMounts:
+            - name: transactor-properties
+              mountPath: /opt/datomic-pro-1.0.6202/config/transactor.properties
+              subPath: transactor.properties

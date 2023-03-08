@@ -1,0 +1,11 @@
+^{:watch-dirs    ["src/cljs"]
+  :css-dirs      ["resources/public/css"]
+  :npm           {:bundles {"dist/index.bundle.js" "src/js/index.js"}}
+  :ring-handler  org.parkerici.sample-tracking.handler/app
+  ;; Open a static page that doesn't load from DB or else we'll error. Can remove once we add components.
+  :open-url      "http://[[server-hostname]]:[[server-port]]/auth/log-in"
+  :cljs-devtools false}
+{:main            org.parkerici.sample-tracking.core
+ :closure-defines {"re_frame.trace.trace_enabled_QMARK_" true}
+ :npm-deps        false
+ :output-to       "resources/public/cljs-out/main.js"}

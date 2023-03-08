@@ -1,0 +1,7 @@
+{:endpoint           #or [#env DATOMIC_ENDPOINT "localhost:8998"]
+ :access-key         #or [#env DATOMIC_ACCESS_KEY "myaccesskey"]
+ :secret             #or [#env DATOMIC_SECRET "mysecret"]
+ :db-name            #or [#env DATOMIC_DB_NAME "ereq-dev"]
+ :validate-hostnames #profile {:default    false
+                               :staging    false
+                               :production false}}

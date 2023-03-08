@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: google-oauth
+type: Opaque
+data:
+  id: ${B64_OAUTH_CLIENT_ID}
+  secret: ${B64_OAUTH_CLIENT_SECRET}

@@ -1,0 +1,48 @@
+Definition,Name,Kit Item No.
+"[{:type ""boolean""
+  :required true
+  :label ""Patient Trained on Collection""
+  :field-id ""patient-trained""}
+ {:type ""select""
+  :required true
+  :label ""Collection Location""
+  :options [[""home"" ""Home""] [""on-site"" ""On-Site""]]
+  :field-id ""collection-location""}]",Stool,"995208, 995623, 250003, 995418, 995419, 995647"
+"[{:type ""select""
+  :required true
+  :label ""Biopsy Type""
+  :options [[""core"" ""Core""] [""incisional"" ""Incisional""]]
+  :field-id ""biopsy-type""}
+ {:type ""string""
+  :required true
+  :label ""Biopsy Site""
+  :field-id ""biopsy-site""}
+ {:type ""int""
+  :required true
+  :label ""FFPE Block Fixation in Hours""
+  :field-id ""fixation-hours""}
+ {:type ""int""
+  :required true
+  :label ""Freezing Time in Seconds""
+  :field-id ""freezing-seconds""}]",Tissue,"995207, 995592, 250003, 995415"
+"[{:type ""select""
+  :required true
+  :label ""Biopsy Type""
+  :options [[""core"" ""Core""] [""incisional"" ""Incisional""] [""excisional"" ""Excisional""]]
+  :field-id ""biopsy-type""}
+ {:type ""string""
+  :required true
+  :label ""Biopsy Site""
+  :field-id ""biopsy-site""}
+ {:type ""int""
+  :required true
+  :label ""FFPE Block Fixation in Hours""
+  :field-id ""fixation-hours""}
+ {:type ""int""
+  :required true
+  :label ""Freezing Time in Seconds""
+  :field-id ""freezing-seconds""}]",STUDY8 Tissue,996212
+"[{:type ""time""
+  :required true
+  :label ""Processing Time""
+  :field-id ""processing-time""}]",Blood,"995206,  995210,  995228, 995588, 995589, 995590, 250001, 99540212"

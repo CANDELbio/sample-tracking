@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: datomic-transactor-properties
+type: Opaque
+data:
+  transactor.properties: ${B64_TRANSACTOR_PROPS}

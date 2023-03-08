@@ -1,0 +1,22 @@
+# transactor properties for local dev instances (and CI)
+
+###################################################################
+
+protocol=dev
+host=localhost
+port=4334
+
+###################################################################
+# See https://docs.datomic.com/on-prem/storage.html
+
+license-key=${DATOMIC_LICENSE_KEY}
+
+
+###################################################################
+# See https://docs.datomic.com/on-prem/capacity.html
+
+
+## Recommended settings for -Xmx1g usage, e.g. dev laptops.
+memory-index-threshold=32m
+memory-index-max=256m
+object-cache-max=128m

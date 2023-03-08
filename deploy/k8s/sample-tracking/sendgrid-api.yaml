@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sendgrid-api
+type: Opaque
+data:
+  key: ${B64_SENDGRID_API}
